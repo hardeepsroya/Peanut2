@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
@@ -17,9 +18,11 @@ namespace ConsoleApp1
         }
         static async void Download()
         {
-            Thread.Sleep(3000);
-            Console.WriteLine("Download complt 1");
-           await Network.Download();
+            await Network.Download();
+            HttpClient client = new HttpClient();
+            var data = await client.GetStreamAsync("https://www.gapcanada.ca/?tid=gcps000015&kwid=1&ap=7&gclid=EAIaIQobChMI6ZGOvOOl4QIVj4bACh3KlA2SEAAYASAAEgI4BvD_BwE&gclsrc=aw.ds");
+            Console.WriteLine(data);
+           
         }
         class  Network
         {
