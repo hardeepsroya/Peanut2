@@ -17,14 +17,16 @@ namespace ConsoleApp1
         }
         static void Download()
         {
-            //Thread.Sleep(3000);
+            Thread.Sleep(3000);
             Console.WriteLine("Download complt 1");
-            Task Run() => ()
-                {
-                Thread.Sleep(3000);
-                Console.WriteLine("commit 1");
+            Network.Download();
+        }
+        class  Network
+        {
+            static public Task Download()
+            {
+                return Task.Run(() => Thread.Sleep(3000));
             }
-            );
         }
     }
 }
