@@ -15,11 +15,11 @@ namespace ConsoleApp1
             Download();
             Console.ReadLine();
         }
-        static void Download()
+        static async void Download()
         {
             Thread.Sleep(3000);
             Console.WriteLine("Download complt 1");
-            Network.Download();
+           await Network.Download();
         }
         class  Network
         {
